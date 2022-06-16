@@ -45,6 +45,7 @@ kernel: $(K_DOT_CONFIG)
 #	$(Q)$(MAKE) -C linux-rt ARCH=arm64 CROSS_COMPILE=${K_CROSS_COMPILE} -j$J headers_install
 
 kernel-clean:
+	$(Q)$(MAKE) -C phoenix/system/src/drivers ARCH=arm64 CROSS_COMPILE=${K_CROSS_COMPILE} TARGET_KDIR=$(TARGET_KDIR) -j$J INSTALL_MOD_PATH=output clean
 	$(Q)$(MAKE) -C linux-rt ARCH=arm64 CROSS_COMPILE=${K_CROSS_COMPILE} -j$J distclean
 	rm -rf linux-rt/output/
 

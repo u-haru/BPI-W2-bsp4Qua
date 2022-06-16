@@ -59,7 +59,7 @@ $(DIRS):
 	@if test -d $@; then cd $@; $(MAKE) $(TARGET) CROSS=$(_CROSS) all; fi
 
 clean:
-	@for dir in $(DIRS); do \
+	@for dir in $(shell ls -d */|cut -f1 -d'/'); do \
 		if test -d $$dir; then \
 			if (cd $$dir; $(MAKE) $@); then true; else exit 1; fi; \
 		fi \
